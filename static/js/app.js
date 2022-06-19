@@ -25,7 +25,7 @@ function buildTable(data) {
 
 // 1. Create a variable to keep track of all the filters as an object.
 // creating an empty filters variable to keep track of all the elements that change when a search is entered
-var filters = [];
+var filters = {};
 
 // 3. Use this function to update the filters. 
 function updateFilters() {
@@ -35,15 +35,15 @@ function updateFilters() {
     let element = d3.select(this);
     
     // 4b. Save the value that was changed as a variable.
-    let valueElement = element.property('value');
-    // console.log(valueElement);
+    let elementValue = element.property('value');
+    // console.log(elementValue);
     // 4c. Save the id of the filter that was changed as a variable.
     let idElement = element.attr('id');
     // console.log(idElement);
     // 5. If a filter value was entered then add that filterId and value
     // to the filters list. Otherwise, clear that filter from the filters object.
     if (valueElement) {
-      filters[filterId]=valueElement;
+      filters[filterId]=elementValue;
     }
     else {
       delete filters[filterId];
